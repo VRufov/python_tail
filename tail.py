@@ -54,7 +54,7 @@ def tail_observer(filename: str, lines: int):
 def tail(file: BinaryIO, lines: int) -> str:
 
     # Change the current file position to the end
-    file.seek(0, 2)
+    file.seek(0, os.SEEK_END)
     current_position = file.tell()
 
     block_size = 1024
@@ -64,7 +64,7 @@ def tail(file: BinaryIO, lines: int) -> str:
 
     while lines_found < lines and current_position > 0:
         if current_position - block_size > 0:
-            file.seek(block_number * block_size, 2)
+            file.seek(block_number * block_size, os.SEEK_END)
             blocks.append(file.read(block_size))
         else:
             file.seek(0, os.SEEK_SET)
