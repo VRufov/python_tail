@@ -10,9 +10,8 @@ from exceptions import IsNotFile, FileDeleted
 
 def get_last_update(filepath: str):
     stats = os.stat(filepath)
-    modification_time = time.ctime(stats.st_mtime)
 
-    return modification_time
+    return stats.st_mtime
 
 
 def is_file(filepath: str):
