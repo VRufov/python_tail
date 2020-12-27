@@ -8,21 +8,21 @@ from parser import init_args_parser
 from exceptions import IsNotFile, FileDeleted
 
 
-def get_last_update(filepath: str):
+def get_last_update(filepath: str) -> float:
     stats = os.stat(filepath)
 
     return stats.st_mtime
 
 
-def is_file(filepath: str):
+def is_file(filepath: str) -> bool:
     return Path(filepath).is_file()
 
 
-def is_file_exists(filepath: str):
+def is_file_exists(filepath: str) -> bool:
     return Path(filepath).exists()
 
 
-def check_file(filepath: str):
+def check_file(filepath: str) -> None:
     if not is_file_exists(filepath):
         raise FileNotFoundError
     if not is_file(filepath):

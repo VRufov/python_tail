@@ -14,7 +14,7 @@ def init_args_parser() -> ArgumentParser:
         "-n",
         "--lines",
         type=int,
-        help="output the last NUM lines, instead of the last 10",
+        help="output the last NUM lines, instead of the last 10 by default",
         default=10,
         required=False,
     )
