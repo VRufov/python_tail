@@ -76,7 +76,7 @@ def tail(file: BinaryIO, lines: int) -> str:
 
     all_read_text = b"".join(reversed(blocks))
 
-    return b"\n".join(all_read_text.splitlines()[-lines:]).decode("utf-8")
+    return str(b"\n".join(all_read_text.splitlines()[-lines:]))
 
 
 if __name__ == "__main__":
